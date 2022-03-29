@@ -22,28 +22,8 @@ router.get("/:id", (req, res) => {
     where: {
       id: req.params.id,
     },
-    //   include: [
-    //     Category,
-    //     {
-    //       model: Tag,
-    //       through: ProductTag,
-    //     },
-    //   ],
-    // })
-    include: [
-      {
-        model: Category,
-        attributes: ["id", "category_name"],
-      },
-      {
-        model: ProductTag,
-        attributes: ["product_id", "tag_id"],
-        include: {
-          model: Tag,
-          attributes: ["tag_name"],
-        },
-      },
-    ],
+
+    include: [{ model: Category }, { model: Tag }],
   })
     .then((dbCommentData) => res.json(dbCommentData))
     .catch((err) => {
