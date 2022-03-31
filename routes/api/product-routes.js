@@ -6,10 +6,7 @@ const { Product, Category, Tag, ProductTag } = require("../../models");
 // get all products
 // be sure to include its associated Category and Tag data
 router.get("/", (req, res) => {
-  Product.findAll({
-    attributes: ["id", "product_name", "price", "stock", "category_id"],
-    include: [{ model: Category }, { model: Tag }],
-  })
+  Product.findAll()
     .then((dbCategoryData) => res.json(dbCategoryData))
     .catch((err) => {
       console.log(err);
@@ -110,7 +107,6 @@ router.put("/:id", (req, res) => {
 
 // delete one product by its `id` value
 router.delete("/:id", (req, res) => {
-  console.log("id", req.params.id);
   Product.destroy({
     where: {
       id: req.params.id,
