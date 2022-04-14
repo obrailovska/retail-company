@@ -4,7 +4,7 @@ This application is a back end for  an e-commerce site.
 
 ## Usage
 Link to the video explanation:
-link
+https://youtu.be/zo6Ko1zaZ1w
 
 
 
